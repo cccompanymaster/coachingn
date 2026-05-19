@@ -59,7 +59,7 @@
     target.textContent = 'Best Hopes';
     return;
   }
-  const phrases = ['Best Hopes', 'Preferred Future', 'What Works', 'Small Next Action', 'Progress Evidence'];
+  const phrases = ['Best Hopes', 'Preferred Future', 'Already Works', 'Small Changes', 'Progressive Narratives'];
   let pi = 0, ci = 0, deleting = false;
   function step() {
     const phrase = phrases[pi];
