@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>상담 문의 | 코칭엔 — 상담 신청 / 교육과정 / 제안서 요청</title>
+  <meta name="description" content="코칭엔 아카데미 상담 신청 · 교육과정 문의 · 제안서(RFP) 요청을 한 페이지에서. 영업일 기준 24시간 내 회신드립니다." />
+  <meta name="theme-color" content="#FAF6F1" />
+  <link rel="icon" href="../assets/coachingn-logo-light.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tw-config.js"></script>
+</head>
+<body class="paper">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-bg/85 border-b border-line">
+  <div class="max-w-content mx-auto px-5 sm:px-6 lg:px-8 h-16 sm:h-[68px] flex items-center justify-between">
+    <a href="../" class="flex items-center gap-2.5">
+      <svg class="logo-svg" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C99A7E"/><stop offset="1" stop-color="#8B6B54"/></linearGradient></defs><rect x="6" y="6" width="52" height="52" rx="10" transform="rotate(-8 32 32)" fill="url(#lgrad)"/><path d="M22 44 V25 c0-1 1-1.6 1.8-1 4.6 3.4 7.8 6.2 7.8 11.2 V44 M40 44 V25 c0-1 1-1.6 1.8-1 4.6 3.4 7.8 6.2 7.8 11.2 V44" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="flex flex-col leading-none"><span class="serif text-xl text-brand-2 tracking-tight2">coaching<span class="italic font-semibold">n</span></span><span class="text-[10.5px] text-mute tracking-widest mt-0.5">코칭엔 아카데미</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-6 text-[14px] text-soft">
+      <a href="../" class="hover:text-ink">홈</a>
+      <a href="../#why" class="hover:text-ink">Why Coachingn</a>
+      <a href="../business-coaching/" class="hover:text-ink">비즈니스 코칭</a>
+      <a href="../coach-training/" class="hover:text-ink">교육과정</a>
+      <a href="../sfbc/" class="hover:text-ink">SFBC</a>
+      <a href="../coaches/" class="hover:text-ink">코치진</a>
+      <a href="../#results" class="hover:text-ink">실적·고객사</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../contact/" class="hidden sm:inline-flex items-center bg-brand text-white px-4 py-2.5 rounded-full text-[13px] font-semibold">상담 문의 →</a>
+      <button id="menu-btn" aria-label="메뉴" aria-controls="mobile-menu" aria-expanded="false" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-line hover:bg-surface-2"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="lg:hidden px-5 pb-5 border-t border-line bg-bg">
+    <nav class="grid gap-1 text-[15px] text-soft pt-3">
+      <a href="../" class="py-2.5 px-2 rounded-md hover:bg-surface-2">홈</a>
+      <a href="../#why" class="py-2.5 px-2 rounded-md hover:bg-surface-2">Why Coachingn</a>
+      <a href="../business-coaching/" class="py-2.5 px-2 rounded-md hover:bg-surface-2">비즈니스 코칭</a>
+      <a href="../coach-training/" class="py-2.5 px-2 rounded-md hover:bg-surface-2">교육과정</a>
+      <a href="../sfbc/" class="py-2.5 px-2 rounded-md hover:bg-surface-2">SFBC</a>
+      <a href="../coaches/" class="py-2.5 px-2 rounded-md hover:bg-surface-2">코치진</a>
+      <a href="../#results" class="py-2.5 px-2 rounded-md hover:bg-surface-2">실적·고객사</a>
+      <a href="../contact/" class="mt-2 inline-flex items-center justify-center bg-brand text-white py-3 rounded-full text-sm font-semibold">상담 문의 →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="relative pt-28 sm:pt-32 lg:pt-40 pb-16 lg:pb-20 overflow-hidden">
+  <div class="aurora"></div>
+  <div class="relative max-w-content mx-auto px-5 sm:px-6 lg:px-8">
+    <p class="eyebrow text-brand-2 mb-5 reveal">Get Started</p>
+    <h1 class="reveal h-hero tracking-tight3 font-bold text-ink max-w-4xl">
+      <span class="serif italic text-brand">진단까지 무료.</span><br />
+      24시간 내 회신드립니다.
+    </h1>
+    <p class="reveal mt-6 text-base sm:text-lg lg:text-xl text-soft max-w-2xl leading-relaxed">
+      상담 신청 · 교육과정 문의 · 제안서(RFP) 요청을 한 폼에서 받습니다.
+      도입 결정 전까지 자료·케이스가 모두 무료로 공유됩니다.
+    </p>
+  </div>
+</section>
+
+<section class="py-12 sm:py-20 lg:py-28 border-t border-line">
+  <div class="max-w-content mx-auto px-5 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 reveal">
+    <div class="lg:col-span-5 space-y-8">
+      <div>
+        <p class="eyebrow text-mute mb-3">Contact</p>
+        <div class="space-y-3 text-sm">
+          <p class="text-soft"><span class="text-brand-2 font-semibold">전화 </span>0507-1326-0346</p>
+          <p class="text-soft"><span class="text-brand-2 font-semibold">이메일 </span>coach@coachingn.com</p>
+          <p class="text-soft"><span class="text-brand-2 font-semibold">주소 </span>경기도 성남시 분당구 서현로 210번길 1, 4층 405-라86호 (서현동)</p>
+          <p class="text-soft"><span class="text-brand-2 font-semibold">사업자 </span>(주) 코칭엔 · 대표 남기웅 · 139-81-67142</p>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow text-mute mb-3">Response Time</p>
+        <div class="bg-bg2 border border-line rounded-2xl p-5">
+          <p class="text-ink font-semibold">영업일 기준 24시간 내 회신</p>
+          <p class="mt-2 text-sm text-soft leading-relaxed">월–금 09:00–18:00. 야간·주말 문의는 다음 영업일 오전 회신드립니다.</p>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow text-mute mb-3">자주 묻는 질문</p>
+        <details class="py-3 border-t border-line"><summary class="flex items-center justify-between text-sm font-semibold text-ink"><span>최소 인원·기간은?</span><span class="chev text-brand-2">+</span></summary><p class="mt-2 text-sm text-soft">1:1 코칭은 1명·3개월부터, 팀코칭은 5–9명·6주부터.</p></details>
+        <details class="py-3 border-t border-line"><summary class="flex items-center justify-between text-sm font-semibold text-ink"><span>비용은 어느 정도?</span><span class="chev text-brand-2">+</span></summary><p class="mt-2 text-sm text-soft">대상 직급·세션 수·진단 포함 여부에 따라 달라집니다. 제안서 요청 시 24시간 내 회신.</p></details>
+        <details class="py-3 border-t border-line border-b"><summary class="flex items-center justify-between text-sm font-semibold text-ink"><span>온라인/오프라인은?</span><span class="chev text-brand-2">+</span></summary><p class="mt-2 text-sm text-soft">1:1은 온라인 중심, 팀코칭의 킥오프·중간점검은 오프라인 권장.</p></details>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7">
+      <form id="contact-form" class="grid sm:grid-cols-2 gap-3" novalidate>
+        <input id="company" name="company" required class="field" placeholder="회사명 / 소속 *" />
+        <input id="name" name="name" required class="field" placeholder="담당자명 *" />
+        <input id="role" name="role" class="field" placeholder="직함" />
+        <input id="email" name="email" type="email" required class="field" placeholder="이메일 *" />
+        <input id="phone" name="phone" class="field sm:col-span-2" placeholder="연락처(선택)" />
+        <select id="purpose" name="purpose" class="field sm:col-span-2" required>
+          <option value="">문의 유형을 선택하세요 *</option>
+          <optgroup label="상담 신청 (비즈니스 코칭)">
+            <option>경영자·임원 코칭</option>
+            <option>팀 코칭 / 리더십팀 정렬</option>
+            <option>마인드코드 진단</option>
+            <option>코칭 문화 구축 컨설팅</option>
+          </optgroup>
+          <optgroup label="교육과정 문의">
+            <option>CPCT 전문코치 (ICF Level 2 PCC)</option>
+            <option>cSFTT 팀코치 (ICF ACTC)</option>
+            <option>코칭리더십 베이직 20시간 (KCA 기초)</option>
+            <option>해결을 위한 비즈니스코칭 40시간 (KCA 심화)</option>
+          </optgroup>
+          <optgroup label="기타">
+            <option>제안서(RFP) 요청</option>
+            <option>AI코칭 연구 · 파트너십</option>
+            <option>공익·프로보노 협업</option>
+            <option>언론·세미나 협조</option>
+          </optgroup>
+        </select>
+        <select name="org_size" class="field sm:col-span-2">
+          <option value="">조직 규모(선택)</option>
+          <option>~50명</option><option>50–200명</option><option>200–1,000명</option><option>1,000–5,000명</option><option>5,000명 이상</option>
+        </select>
+        <textarea id="message" name="message" rows="5" class="field sm:col-span-2 resize-none" placeholder="문의 내용을 자유롭게 작성해 주세요 (목표, 일정, 예상 인원 등)"></textarea>
+
+        <label class="sm:col-span-2 flex items-start gap-3 text-sm text-soft mt-2">
+          <input type="checkbox" required class="mt-1 accent-brand" />
+          <span>개인정보 수집·이용에 동의합니다. 제출하신 정보는 상담 회신 목적 외 사용되지 않으며, 1년 후 자동 파기됩니다.</span>
+        </label>
+
+        <div class="sm:col-span-2 mt-4 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+          <button type="submit" class="inline-flex items-center justify-center gap-2 bg-ink text-bg px-7 py-3.5 rounded-full font-semibold hover:bg-brand transition">
+            문의 보내기 →
+          </button>
+          <p id="form-msg" class="text-sm text-mute"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t border-line bg-surface">
+  <div class="max-w-content mx-auto px-5 sm:px-6 lg:px-8 py-14 grid md:grid-cols-12 gap-10 text-sm">
+    <div class="md:col-span-5">
+      <a href="../" class="flex items-center gap-2.5"><svg class="logo-svg" viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="6" width="52" height="52" rx="10" transform="rotate(-8 32 32)" fill="#B68A6E"/><path d="M22 44 V25 c0-1 1-1.6 1.8-1 4.6 3.4 7.8 6.2 7.8 11.2 V44 M40 44 V25 c0-1 1-1.6 1.8-1 4.6 3.4 7.8 6.2 7.8 11.2 V44" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="flex flex-col leading-none"><span class="serif text-xl text-brand-2 tracking-tight2">coaching<span class="italic font-semibold">n</span></span><span class="text-[10.5px] text-mute tracking-widest mt-0.5">코칭엔 아카데미</span></span></a>
+      <p class="mt-5 text-soft leading-relaxed">해결중심 비즈니스 코칭 컴퍼니. 리더와 팀이 가장 짧은 시간 안에<br/>실행 가능한 해법을 찾고, 실제 성과로 옮기도록 돕습니다.</p>
+      <p class="mt-6 text-xs text-mute leading-relaxed">(주) 코칭엔 · 대표 남기웅 · 사업자등록번호 139-81-67142<br/>경기도 성남시 분당구 서현로 210번길 1, 4층 405-라86호 (서현동)<br/>TEL 0507-1326-0346 · coach@coachingn.com</p>
+    </div>
+    <div class="md:col-span-3"><p class="eyebrow text-mute mb-4">Sitemap</p><ul class="space-y-2.5 text-soft">
+      <li><a href="../" class="hover:text-ink">홈</a></li>
+      <li><a href="../#why" class="hover:text-ink">Why Coachingn</a></li>
+      <li><a href="../business-coaching/" class="hover:text-ink">비즈니스 코칭</a></li>
+      <li><a href="../coach-training/" class="hover:text-ink">교육과정</a></li>
+      <li><a href="../sfbc/" class="hover:text-ink">SFBC</a></li>
+      <li><a href="../coaches/" class="hover:text-ink">코치진</a></li>
+      <li><a href="../#results" class="hover:text-ink">실적·고객사</a></li>
+      <li><a href="../contact/" class="hover:text-ink">상담 문의</a></li>
+    </ul></div>
+    <div class="md:col-span-4"><p class="eyebrow text-mute mb-4">Newsletter</p><p class="text-soft">월 1회, 리더십·팀코칭 인사이트.</p><form class="newsletter mt-4 flex items-center gap-2"><input type="email" required placeholder="email@company.com" class="flex-1 bg-transparent border-b border-line2 py-3 text-ink placeholder:text-mute focus:border-brand outline-none" /><button class="text-brand-2 hover:text-ink text-sm font-semibold">구독 →</button></form><p class="mt-2 text-xs text-mute"></p></div>
+  </div>
+  <div class="border-t border-line"><div class="max-w-content mx-auto px-5 sm:px-6 lg:px-8 py-6 flex flex-wrap items-center justify-between text-xs text-mute gap-3"><p>© 2026 (주) 코칭엔 아카데미. All rights reserved.</p><p>Privacy · Terms</p></div></div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
