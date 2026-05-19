@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>코칭엔 | 해결중심 비즈니스 코칭과 전문코치·팀코치 양성</title>
+  <meta name="description" content="코칭엔은 해결중심 단기코칭(SFBC) 기반의 비즈니스 코칭 전문기관입니다. 임원·팀 코칭, ICF Level 2(PCC), ACTC, KCA 인증 코치 양성 과정을 제공합니다." />
+  <meta property="og:title" content="코칭엔 | From Best Hopes to Business Results" />
+  <meta property="og:description" content="리더와 팀이 가장 짧은 시간 안에 실행 가능한 해법을 찾고, 실제 성과로 옮기도록 돕는 해결중심 비즈니스 코칭 컴퍼니." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0B1F3A',
+            'primary-2': '#13345E',
+            accent: '#C9A86A',
+            'accent-2': '#B08F4D',
+            surface: '#F7F5F2',
+            'surface-2': '#EFEAE2',
+            ink: '#1A1A1A',
+            mute: '#6E6E6E',
+            line: '#E4DED3',
+          },
+          fontFamily: {
+            sans: ['Pretendard', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['IBM Plex Mono', 'ui-monospace', 'monospace'],
+            display: ['Inter', 'Pretendard', 'sans-serif'],
+          },
+          maxWidth: { content: '1240px' },
+          letterSpacing: { tight2: '-0.02em', tight3: '-0.03em' },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Pretendard', 'Inter', sans-serif; color: #1A1A1A; background: #F7F5F2; }
+    .num { font-family: 'Inter', 'IBM Plex Mono', monospace; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+    .eyebrow { font-family: 'Inter', monospace; letter-spacing: 0.18em; text-transform: uppercase; font-size: 12px; font-weight: 600; }
+
+    /* fade-up on scroll */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s ease-out, transform .7s ease-out; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* logo marquee */
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .marquee-track { animation: marquee 40s linear infinite; }
+
+    /* hero mesh background */
+    .mesh {
+      background:
+        radial-gradient(60% 50% at 80% 20%, rgba(201,168,106,0.35), transparent 60%),
+        radial-gradient(50% 50% at 20% 80%, rgba(19,52,94,0.35), transparent 60%),
+        radial-gradient(45% 45% at 60% 60%, rgba(255,255,255,0.10), transparent 60%);
+      filter: blur(2px);
+    }
+    .grain::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.05; mix-blend-mode: overlay;
+      background-image: radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px);
+      background-size: 3px 3px;
+    }
+
+    /* faq */
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .chev { transform: rotate(45deg); }
+
+    /* form */
+    .field {
+      width: 100%; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,0.25);
+      color: #fff; padding: 14px 2px; font-size: 15px; outline: none; transition: border-color .2s;
+    }
+    .field::placeholder { color: rgba(255,255,255,0.5); }
+    .field:focus { border-color: #C9A86A; }
+    select.field option { color: #1A1A1A; }
+  </style>
+</head>
+<body class="antialiased">
+
+<!-- ========= NAV ========= -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur bg-surface/80 border-b border-line">
+  <div class="max-w-content mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2">
+      <span class="inline-block w-7 h-7 rounded-full bg-primary relative">
+        <span class="absolute inset-1.5 rounded-full border border-accent"></span>
+      </span>
+      <span class="font-semibold tracking-tight2 text-ink">코칭엔<span class="text-mute font-normal"> · CoachingN</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 text-[14px] text-ink/80">
+      <a href="#why" class="hover:text-ink">Why Coachingn</a>
+      <a href="#solutions" class="hover:text-ink">비즈니스 코칭</a>
+      <a href="#tracks" class="hover:text-ink">교육과정</a>
+      <a href="#sfbc" class="hover:text-ink">SFBC</a>
+      <a href="#coaches" class="hover:text-ink">코치진</a>
+      <a href="#results" class="hover:text-ink">실적·고객사</a>
+    </nav>
+    <a href="#contact" class="inline-flex items-center gap-1.5 bg-primary text-white px-4 py-2.5 rounded-full text-[13px] font-medium hover:bg-primary-2 transition">
+      상담 문의 <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</header>
+
+<!-- ========= HERO ========= -->
+<section id="top" class="relative pt-32 lg:pt-40 pb-24 lg:pb-32 overflow-hidden">
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-surface"></div>
+    <div class="absolute top-0 right-0 w-[60%] h-[120%] mesh"></div>
+  </div>
+
+  <div class="max-w-content mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-10 lg:gap-6 items-center">
+    <div class="lg:col-span-7 reveal">
+      <p class="eyebrow text-accent-2 mb-6">Executive Coaching · Organizational Growth</p>
+      <h1 class="text-[40px] sm:text-[56px] lg:text-[72px] leading-[1.05] tracking-tight3 font-bold text-primary">
+        From <span class="italic font-medium text-accent-2">Best Hopes</span><br />
+        to Business <span class="text-primary">Results.</span>
+      </h1>
+      <p class="mt-6 text-lg lg:text-xl text-ink/80 max-w-xl leading-relaxed">
+        리더와 팀이 가장 짧은 시간 안에 실행 가능한 해법을 찾고,<br class="hidden lg:block" />
+        실제 성과로 옮기도록 돕는 해결중심 비즈니스 코칭 컴퍼니.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="#contact" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-4 rounded-full text-[15px] font-medium hover:bg-primary-2 transition">
+          기업 코칭 도입 문의 <span aria-hidden="true">→</span>
+        </a>
+        <a href="#tracks" class="inline-flex items-center gap-2 border border-primary/20 text-primary px-6 py-4 rounded-full text-[15px] font-medium hover:bg-primary/5 transition">
+          교육과정 보기
+        </a>
+      </div>
+
+      <p class="mt-10 text-[13px] text-mute">
+        삼성전자 · LG전자 · 카카오모빌리티 · 우아한형제들 · 한국수력원자력 · KBO 코치아카데미 등 100+ 조직과 협업
+      </p>
+    </div>
+
+    <div class="lg:col-span-5 reveal">
+      <div class="relative aspect-square max-w-[460px] mx-auto">
+        <!-- abstract graphic -->
+        <svg viewBox="0 0 460 460" class="w-full h-full" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#13345E" />
+              <stop offset="1" stop-color="#0B1F3A" />
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#C9A86A" />
+              <stop offset="1" stop-color="#B08F4D" />
+            </linearGradient>
+          </defs>
+          <circle cx="230" cy="230" r="200" fill="url(#g1)" opacity="0.95" />
+          <circle cx="230" cy="230" r="200" fill="none" stroke="#C9A86A" stroke-opacity="0.25" />
+          <circle cx="230" cy="230" r="150" fill="none" stroke="#fff" stroke-opacity="0.12" />
+          <circle cx="230" cy="230" r="100" fill="none" stroke="#fff" stroke-opacity="0.15" />
+          <path d="M50 280 Q 200 80, 410 200" fill="none" stroke="url(#g2)" stroke-width="2" />
+          <path d="M40 320 Q 230 200, 420 260" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.5" />
+          <circle cx="410" cy="200" r="6" fill="#C9A86A" />
+          <circle cx="50" cy="280" r="5" fill="#fff" />
+          <circle cx="230" cy="230" r="8" fill="#fff" />
+          <text x="230" y="234" text-anchor="middle" fill="#0B1F3A" font-family="Inter" font-size="9" font-weight="700">SFBC</text>
+        </svg>
+        <div class="absolute -bottom-4 -left-2 bg-white shadow-lg rounded-2xl px-5 py-4 border border-line">
+          <p class="eyebrow text-mute">Coaching Hours</p>
+          <p class="num text-2xl font-semibold text-primary mt-1">3,200+ <span class="text-sm text-mute font-normal">hrs</span></p>
+        </div>
+        <div class="absolute -top-2 -right-2 bg-primary text-white shadow-lg rounded-2xl px-5 py-4">
+          <p class="eyebrow text-accent">ICF MCC · ACTC</p>
+          <p class="text-sm mt-1">Master Certified Coach</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= LOGO CLOUD ========= -->
+<section aria-label="도입 기업" class="border-y border-line bg-surface-2/40 py-10 overflow-hidden">
+  <p class="text-center eyebrow text-mute mb-6">Trusted by leaders at</p>
+  <div class="relative">
+    <div class="flex w-max marquee-track gap-12 text-mute/80">
+      <!-- duplicate set -->
+      <div class="flex items-center gap-12 px-6 text-[15px] font-medium tracking-tight2 whitespace-nowrap">
+        <span>SAMSUNG ELECTRONICS</span><span>·</span>
+        <span>LG ELECTRONICS</span><span>·</span>
+        <span>Kakao Mobility</span><span>·</span>
+        <span>우아한형제들</span><span>·</span>
+        <span>한국수력원자력</span><span>·</span>
+        <span>KBO Coach Academy</span><span>·</span>
+        <span>카카오페이증권</span><span>·</span>
+        <span>POLO Ralph Lauren Korea</span><span>·</span>
+        <span>아산나눔재단</span><span>·</span>
+      </div>
+      <div class="flex items-center gap-12 px-6 text-[15px] font-medium tracking-tight2 whitespace-nowrap" aria-hidden="true">
+        <span>SAMSUNG ELECTRONICS</span><span>·</span>
+        <span>LG ELECTRONICS</span><span>·</span>
+        <span>Kakao Mobility</span><span>·</span>
+        <span>우아한형제들</span><span>·</span>
+        <span>한국수력원자력</span><span>·</span>
+        <span>KBO Coach Academy</span><span>·</span>
+        <span>카카오페이증권</span><span>·</span>
+        <span>POLO Ralph Lauren Korea</span><span>·</span>
+        <span>아산나눔재단</span><span>·</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= WHY COACHINGN ========= -->
+<section id="why" class="py-28 lg:py-36">
+  <div class="max-w-content mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-10 reveal">
+      <div class="lg:col-span-5">
+        <p class="eyebrow text-accent-2 mb-4">Why Coachingn</p>
+        <h2 class="text-4xl lg:text-5xl tracking-tight3 font-bold text-primary leading-tight">
+          코치를 부르는 곳이 아니라,<br />성과를 설계하는 파트너.
+        </h2>
+      </div>
+      <div class="lg:col-span-7 lg:pt-3">
+        <p class="text-lg text-ink/75 leading-relaxed">
+          코칭엔은 해결중심 단기코칭(SFBC) 방법론을 기반으로,
+          비즈니스 맥락에 맞춘 실용적 코칭을 설계·운영합니다.
+          개인의 변화가 아니라, 조직의 의사결정과 실행 속도를 바꾸는 것을 목표로 합니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <article class="reveal bg-white border border-line rounded-2xl p-7 hover:border-accent/60 transition">
+        <p class="eyebrow text-accent-2">01</p>
+        <h3 class="mt-4 text-xl font-semibold tracking-tight2 text-primary">Solution-Focused</h3>
+        <p class="mt-3 text-[15px] text-ink/70 leading-relaxed">문제 분석이 아니라, 가능한 해법으로 대화를 설계합니다. 짧은 대화에서 실행 가능한 다음 단계가 나옵니다.</p>
+      </article>
+      <article class="reveal bg-white border border-line rounded-2xl p-7 hover:border-accent/60 transition">
+        <p class="eyebrow text-accent-2">02</p>
+        <h3 class="mt-4 text-xl font-semibold tracking-tight2 text-primary">Business-Centered</h3>
+        <p class="mt-3 text-[15px] text-ink/70 leading-relaxed">매출, 조직 성과, 리텐션 같은 비즈니스 지표에 연결된 코칭. 인사 데이터·360 진단과 결합해 설계합니다.</p>
+      </article>
+      <article class="reveal bg-white border border-line rounded-2xl p-7 hover:border-accent/60 transition">
+        <p class="eyebrow text-accent-2">03</p>
+        <h3 class="mt-4 text-xl font-semibold tracking-tight2 text-primary">Evidence-Based</h3>
+        <p class="mt-3 text-[15px] text-ink/70 leading-relaxed">ICF·국제 코칭 연구의 프레임 위에서 작동합니다. 매 세션 작은 진척의 증거(Progress Evidence)를 남깁니다.</p>
+      </article>
+      <article class="reveal bg-white border border-line rounded-2xl p-7 hover:border-accent/60 transition">
+        <p class="eyebrow text-accent-2">04</p>
+        <h3 class="mt-4 text-xl font-semibold tracking-tight2 text-primary">Action-Oriented</h3>
+        <p class="mt-3 text-[15px] text-ink/70 leading-relaxed">"무엇을 깨달았는가"가 아니라 "다음 한 주에 무엇을 할 것인가". Small Next Action으로 끝맺습니다.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========= BUSINESS CHALLENGE ========= -->
+<section class="py-28 lg:py-36 bg-primary text-white relative overflow-hidden">
+  <div class="absolute inset-0 -z-0 opacity-30">
+    <div class="absolute top-10 -left-20 w-[420px] h-[420px] rounded-full bg-accent/20 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-[520px] h-[520px] rounded-full bg-primary-2/60 blur-3xl"></div>
+  </div>
+  <div class="max-w-content mx-auto px-6 lg:px-8 relative">
+    <div class="grid lg:grid-cols-12 gap-10 items-end reveal">
+      <div class="lg:col-span-7">
+        <p class="eyebrow text-accent mb-4">Business Challenge</p>
+        <h2 class="text-4xl lg:text-5xl tracking-tight3 font-bold leading-tight">
+          리더와 팀의 문제는<br />점점 더 복잡해지고 있습니다.
+        </h2>
+      </div>
+      <div class="lg:col-span-5 text-white/70 leading-relaxed">
+        매뉴얼은 빠르게 낡고, 정답은 더 이상 한 사람에게서 나오지 않습니다.
+        리더가 답을 가진 시대에서, 리더가 좋은 질문을 가진 시대로 옮겨가고 있습니다.
+      </div>
+    </div>
+
+    <div class="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
+      <div class="bg-primary p-8">
+        <p class="num text-5xl lg:text-6xl font-semibold text-accent" data-count="73">0</p>
+        <p class="mt-3 text-white/85 leading-snug">신임 임원이 1년 내<br />번아웃을 경험하는 비율</p>
+        <p class="mt-3 text-xs text-white/45">Gallup · State of the Workplace 2024</p>
+      </div>
+      <div class="bg-primary p-8">
+        <p class="num text-5xl lg:text-6xl font-semibold text-accent" data-count="58">0</p>
+        <p class="mt-3 text-white/85 leading-snug">직원이 팀장 코칭 역량에<br />만족하지 못하는 비율</p>
+        <p class="mt-3 text-xs text-white/45">CCL · Leadership Indicator 2023</p>
+      </div>
+      <div class="bg-primary p-8">
+        <p class="num text-5xl lg:text-6xl font-semibold text-accent" data-count="6.7">0</p>
+        <p class="mt-3 text-white/85 leading-snug">코칭 1$ 투자 대비<br />평균 ROI (배)</p>
+        <p class="mt-3 text-xs text-white/45">ICF Global Coaching Study</p>
+      </div>
+      <div class="bg-primary p-8">
+        <p class="num text-5xl lg:text-6xl font-semibold text-accent" data-count="3">0</p>
+        <p class="mt-3 text-white/85 leading-snug">팀 코칭 6개월 후<br />협업 지표 평균 향상폭 (배)</p>
+        <p class="mt-3 text-xs text-white/45">ICF Team Coaching Research</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= SOLUTIONS ========= -->
+<section id="solutions" class="py-28 lg:py-36">
+  <div class="max-w-content mx-auto px-6 lg:px-8">
+    <div class="max-w-3xl reveal">
+      <p class="eyebrow text-accent-2 mb-4">Business Coaching Solutions</p>
+      <h2 class="text-4xl lg:text-5xl tracking-tight3 font-bold text-primary leading-tight">
+        조직의 의사결정 구조<br />그 자체에 코칭을 심습니다.
+      </h2>
+      <p class="mt-6 text-lg text-ink/70 leading-relaxed">
+        경영자 1:1 코칭부터 팀 코칭, 진단, 사내 코칭 문화 정착 컨설팅까지.
+        조직이 어느 단계에 있어도 시작할 수 있도록 설계되어 있습니다.
+      </p>
+    </div>
+
+    <div class="mt-16 grid md:grid-cols-2 gap-5">
+      <article class="reveal group bg-white border border-line rounded-3xl p-8 lg:p-10 hover:shadow-xl hover:-translate-y-0.5 transition">
+        <div class="flex items-start justify-between">
+          <span class="eyebrow text-accent-2">Executive</span>
+          <span class="text-[13px] text-mute">1:1 · 3–12개월</span>
+        </div>
+        <h3 class="mt-5 text-2xl font-semibold tracking-tight2 text-primary">경영자 · 임원 코칭</h3>
+        <p class="mt-4 text-ink/70 leading-relaxed">
+          CEO·C-level·신임 임원을 위한 1:1 코칭. 경영 의사결정,
+          리더십 정체성, 이해관계자 관리 등 가장 외로운 위치의 사고를 함께 설계합니다.
+        </p>
+        <ul class="mt-6 space-y-2 text-[15px] text-ink/75">
+          <li class="flex gap-2"><span class="text-accent-2">—</span>전·현직 CHRO 출신 코치 매칭</li>
+          <li class="flex gap-2"><span class="text-accent-2">—</span>경영 어젠다 기반 세션 설계</li>
+          <li class="flex gap-2"><span class="text-accent-2">—</span>360 진단·이해관계자 인터뷰 결합</li>
+        </ul>
+      </article>
+
+      <article class="reveal group bg-white border border-line rounded-3xl p-8 lg:p-10 hover:shadow-xl hover:-translate-y-0.5 transition">
+        <div class="flex items-start justify-between">
+          <span class="eyebrow text-accent-2">Team</span>
+          <span class="text-[13px] text-mute">팀 단위 · 6–12주</span>
+        </div>
+        <h3 class="mt-5 text-2xl font-semibold tracking-tight2 text-primary">팀 코칭 프로그램</h3>
+        <p class="mt-4 text-ink/70 leading-relaxed">
+          ICF 팀코칭 모델(ACTC) 기반. 팀의 공유 목적, 의사결정 규칙,
+          갈등 처리 방식을 한 사이클 안에서 재정렬합니다.
+        </p>
+        <ul class="mt-6 space-y-2 text-[15px] text-ink/75">
+          <li class="flex gap-2"><span class="text-accent-2">—</span>리더십팀·신설 본부·통합 조직에 적합</li>
+          <li class="flex gap-2"><span class="text-accent-2">—</span>킥오프 워크숍 + 정기 팀 세션 + 1:1 보강</li>
+          <li class="flex gap-2"><span class="text-accent-2">—</span>운영 지표 변화로 마감</li>
+        </ul>
+      </article>
+
+      <article class="reveal group bg-white border border-line rounded-3xl p-8 lg:p-10 hover:shadow-xl hover:-translate-y-0.5 transition">
+        <div class="flex items-start justify-between">
+          <span class="eyebrow text-accent-2">Diagnostic</span>
+          <span class="text-[13px] text-mute">Mindcode · 2주</span>
+        </div>
+        <h3 class="mt-5 text-2xl font-semibold tracking-tight2 text-primary">마인드코드 진단</h3>
+        <p class="mt-4 text-ink/70 leading-relaxed">
+          개인·팀의 사고 습관과 의사결정 패턴을 가시화하는 진단 도구.
+          코칭 설계의 출발점이자 평가의 베이스라인으로 사용됩니다.
+        </p>
+        <ul class="mt-6 space-y-2 text-[15px] text-ink/75">
+          <li class="flex gap-2"><span class="text-accent-2">—</span>온라인 진단 · 결과 해석 세션 포함</li>
+          <li class="flex gap-2"><span class="text-accent-2">—</span>코칭 전후 비교 측정 가능</li>
+        </ul>
+      </article>
+
+      <article class="reveal group bg-white border border-line rounded-3xl p-8 lg:p-10 hover:shadow-xl hover:-translate-y-0.5 transition">
+        <div class="flex items-start justify-between">
+          <span class="eyebrow text-accent-2">Consulting</span>
+          <span class="text-[13px] text-mute">조직 단위 · 6–12개월</span>
+        </div>
+        <h3 class="mt-5 text-2xl font-semibold tracking-tight2 text-primary">코칭 문화 구축 컨설팅</h3>
+        <p class="mt-4 text-ink/70 leading-relaxed">
+          사내 코치 양성, 팀장 코칭 스킬 임베딩, 평가·1on1 제도 연결까지.
+          외부 의존을 줄이고 코칭을 조직의 운영체계로 만듭니다.
+        </p>
+        <ul class="mt-6 space-y-2 text-[15px] text-ink/75">
+          <li class="flex gap-2"><span class="text-accent-2">—</span>사내 코치 풀 설계 · 인증 로드맵</li>
+          <li class="flex gap-2"><span class="text-accent-2">—</span>팀장 1on1 매뉴얼 · 평가제도 연동</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========= TRACKS ========= -->
+<section id="tracks" class="py-28 lg:py-36 bg-surface-2/50 border-y border-line">
+  <div class="max-w-content mx-auto px-6 lg:px-8">
+    <div class="reveal max-w-3xl">
+      <p class="eyebrow text-accent-2 mb-4">Coach Training Tracks</p>
+      <h2 class="text-4xl lg:text-5xl tracking-tight3 font-bold text-primary leading-tight">
+        국제·국내 인증과 연결된<br />체계적인 코치 양성 과정.
+      </h2>
+      <p class="mt-6 text-lg text-ink/70 leading-relaxed">
+        ICF Level 2(PCC), ACTC 팀코치 인증, KCA 인증 과정까지. 자격 취득과 실무 역량을 동시에 설계했습니다.
+      </p>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-2 gap-px bg-line border border-line rounded-3xl overflow-hidden">
+      <div class="bg-white p-8 lg:p-10">
+        <div class="flex items-center justify-between">
+          <span class="num text-mute text-sm">TRACK 01</span>
+          <span class="text-[12px] bg-primary text-white px-2.5 py-1 rounded-full">ICF Level 2 · PCC</span>
+        </div>
+        <h3 class="mt-5 text-2xl font-semibold tracking-tight2 text-primary">CPCT 전문코치 양성과정</h3>
+        <p class="mt-3 text-ink/70 leading-relaxed">PCC 자격 취득을 목표로 한 ICF Accredited Level 2 프로그램. 실습·관찰·피드백 중심.</p>
+        <dl class="mt-6 grid grid-cols-3 gap-3 text-[13px]">
+          <div><dt class="text-mute">총 시수</dt><dd class="num font-semibold text-primary mt-1">125 hrs</dd></div>
+          <div><dt class="text-mute">기간</dt><dd class="num font-semibold text-primary mt-1">6–9 mo</dd></div>
+          <div><dt class="text-mute">대상</dt><dd class="font-semibold text-primary mt-1">전문코치 지망</dd></div>
+        </dl>
+      </div>
+
+      <div class="bg-white p-8 lg:p-10">
+        <div class="flex items-center justify-between">
+          <span class="num text-mute text-sm">TRACK 02</span>
+          <span class="text-[12px] bg-primary text-white px-2.5 py-1 rounded-full">ICF ACTC</span>
+        </div>
+        <h3 class="mt-5 text-2xl font-semibold tracking-tight2 text-primary">cSFTT 팀코치 양성과정</h3>
+        <p class="mt-3 text-ink/70 leading-relaxed">ICF 인증 팀코치(ACTC) 자격을 위한 솔루션 포커스 기반 팀코칭 트레이닝.</p>
+        <dl class="mt-6 grid grid-cols-3 gap-3 text-[13px]">
+          <div><dt class="text-mute">총 시수</dt><dd class="num font-semibold text-primary mt-1">60 hrs</dd></div>
+          <div><dt class="text-mute">기간</dt><dd class="num font-semibold text-primary mt-1">4 mo</dd></div>
+          <div><dt class="text-mute">대상</dt><dd class="font-semibold text-primary mt-1">PCC 이상</dd></div>
+        </dl>
+      </div>
+
+      <div class="bg-white p-8 lg:p-10">
+        <div class="flex items-center justify-between">
+          <span class="num text-mute text-sm">TRACK 03</span>
+          <span class="text-[12px] bg-accent text-primary px-2.5 py-1 rounded-full font-semibold">KCA 기초</span>
+        </div>
+        <h3 class="mt-5 text-2xl font-semibold tracking-tight2 text-primary">코칭리더십 베이직 20시간</h3>
+        <p class="mt-3 text-ink/70 leading-relaxed">팀장·리더가 1on1에 바로 적용할 수 있는 코칭 대화 기술. KCA 기초 시수로 인정.</p>
+        <dl class="mt-6 grid grid-cols-3 gap-3 text-[13px]">
+          <div><dt class="text-mute">총 시수</dt><dd class="num font-semibold text-primary mt-1">20 hrs</dd></div>
+          <div><dt class="text-mute">기간</dt><dd class="num font-semibold text-primary mt-1">5 wks</dd></div>
+          <div><dt class="text-mute">대상</dt><dd class="font-semibold text-primary mt-1">리더 · 사내코치</dd></div>
+        </dl>
+      </div>
+
+      <div class="bg-white p-8 lg:p-10">
+        <div class="flex items-center justify-between">
+          <span class="num text-mute text-sm">TRACK 04</span>
+          <span class="text-[12px] bg-accent text-primary px-2.5 py-1 rounded-full font-semibold">KCA 심화</span>
+        </div>
+        <h3 class="mt-5 text-2xl font-semibold tracking-tight2 text-primary">해결을 위한 비즈니스코칭 40시간</h3>
+        <p class="mt-3 text-ink/70 leading-relaxed">SFBC를 비즈니스에 적용하는 심화 과정. KAC/KPC 자격 시수 인정.</p>
+        <dl class="mt-6 grid grid-cols-3 gap-3 text-[13px]">
+          <div><dt class="text-mute">총 시수</dt><dd class="num font-semibold text-primary mt-1">40 hrs</dd></div>
+          <div><dt class="text-mute">기간</dt><dd class="num font-semibold text-primary mt-1">10 wks</dd></div>
+          <div><dt class="text-mute">대상</dt><dd class="font-semibold text-primary mt-1">실무자 · 전문코치</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <p class="mt-8 text-sm text-mute">
+      ※ 전 과정 ICF·KCA 인증 시수 기준 운영. 기수별 정원 제한 있으며, 상세 일정은 상담을 통해 안내합니다.
+    </p>
+  </div>
+</section>
+
+<!-- ========= SFBC ========= -->
+<section id="sfbc" class="py-28 lg:py-36">
+  <div class="max-w-content mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-10 reveal">
+      <div class="lg:col-span-5">
+        <p class="eyebrow text-accent-2 mb-4">SFBC Philosophy</p>
+        <h2 class="text-4xl lg:text-5xl tracking-tight3 font-bold text-primary leading-tight">
+          가장 짧은 대화에서<br />가장 실행 가능한 답을.
+        </h2>
+        <p class="mt-6 text-lg text-ink/70 leading-relaxed">
+          Solution-Focused Brief Coaching은
+          "문제의 원인이 아니라 작동하는 것"에서 출발하는 접근입니다.
+          코칭엔의 모든 프로그램이 이 다섯 가지 원칙 위에서 작동합니다.
+        </p>
+      </div>
+
+      <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+        <div class="bg-primary text-white rounded-2xl p-6">
+          <p class="eyebrow text-accent">01</p>
+          <h3 class="mt-3 text-lg font-semibold">Best Hopes</h3>
+          <p class="mt-2 text-white/75 text-[15px] leading-relaxed">"이 시간이 끝났을 때 무엇이 달라져 있길 바라는가?"로 시작합니다.</p>
+        </div>
+        <div class="bg-white border border-line rounded-2xl p-6">
+          <p class="eyebrow text-accent-2">02</p>
+          <h3 class="mt-3 text-lg font-semibold text-primary">Preferred Future</h3>
+          <p class="mt-2 text-ink/70 text-[15px] leading-relaxed">선호하는 미래를 구체적으로 묘사할 때, 현재의 첫 발이 보입니다.</p>
+        </div>
+        <div class="bg-white border border-line rounded-2xl p-6">
+          <p class="eyebrow text-accent-2">03</p>
+          <h3 class="mt-3 text-lg font-semibold text-primary">What Works</h3>
+          <p class="mt-2 text-ink/70 text-[15px] leading-relaxed">이미 작동하고 있는 작은 성공을 늘리는 방향으로 설계합니다.</p>
+        </div>
+        <div class="bg-white border border-line rounded-2xl p-6">
+          <p class="eyebrow text-accent-2">04</p>
+          <h3 class="mt-3 text-lg font-semibold text-primary">Small Next Action</h3>
+          <p class="mt-2 text-ink/70 text-[15px] leading-relaxed">큰 결심 한 번이 아니라, 다음 한 주의 한 가지로 옮깁니다.</p>
+        </div>
+        <div class="bg-primary text-white rounded-2xl p-6 sm:col-span-2">
+          <p class="eyebrow text-accent">05</p>
+          <h3 class="mt-3 text-lg font-semibold">Progress Evidence</h3>
+          <p class="mt-2 text-white/75 text-[15px] leading-relaxed">매 세션, 진척의 증거를 함께 확인합니다. 직관이 아닌 데이터로 코칭의 효과를 추적합니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= COACHES ========= -->
+<section id="coaches" class="py-28 lg:py-36 bg-surface-2/50 border-y border-line">
+  <div class="max-w-content mx-auto px-6 lg:px-8">
+    <div class="reveal max-w-3xl">
+      <p class="eyebrow text-accent-2 mb-4">Coaches</p>
+      <h2 class="text-4xl lg:text-5xl tracking-tight3 font-bold text-primary leading-tight">
+        대표 코치를 소개합니다.
+      </h2>
+    </div>
+
+    <div class="mt-14 grid lg:grid-cols-12 gap-10 reveal">
+      <div class="lg:col-span-5">
+        <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-gradient-to-br from-primary-2 to-primary relative">
+          <svg viewBox="0 0 400 500" class="w-full h-full" aria-hidden="true">
+            <defs>
+              <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#C9A86A" stop-opacity="0.4" />
+                <stop offset="1" stop-color="#0B1F3A" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <rect width="400" height="500" fill="url(#pg)" />
+            <circle cx="200" cy="200" r="90" fill="#C9A86A" fill-opacity="0.15" stroke="#C9A86A" stroke-opacity="0.3" />
+            <text x="200" y="208" text-anchor="middle" fill="#C9A86A" font-family="Inter" font-size="56" font-weight="700">NK</text>
+            <text x="200" y="450" text-anchor="middle" fill="#fff" fill-opacity="0.85" font-family="Inter" font-size="14" letter-spacing="3">NAM KI-WOONG</text>
+          </svg>
+        </div>
+      </div>
+      <div class="lg:col-span-7">
+        <p class="eyebrow text-accent-2">Founder & Master Coach</p>
+        <h3 class="mt-3 text-3xl lg:text-4xl font-bold text-primary tracking-tight2">남기웅 대표</h3>
+        <p class="mt-2 text-lg text-mute">ICF MCC · ACTC · KCA KSC</p>
+
+        <p class="mt-6 text-ink/75 leading-relaxed">
+          전 카카오·하이브·넥슨코리아 CHO/CHRO. 사람이 회사를 만든다는 신념으로
+          국내 대표 IT·콘텐츠 기업의 조직 설계와 리더십 시스템을 이끌어왔습니다.
+          현재는 코칭엔 대표 코치로서 누적 코칭 시수 <span class="num font-semibold text-primary">3,200시간 이상</span>을 기록하고 있습니다.
+        </p>
+
+        <div class="mt-8 grid sm:grid-cols-2 gap-3">
+          <div class="bg-white border border-line rounded-xl p-4">
+            <p class="eyebrow text-mute">Certifications</p>
+            <p class="mt-2 text-[15px] text-ink/85">ICF Master Certified Coach (MCC)<br />ICF Advanced Certification in Team Coaching (ACTC)<br />KCA Korea Supervisor Coach (KSC)</p>
+          </div>
+          <div class="bg-white border border-line rounded-xl p-4">
+            <p class="eyebrow text-mute">Industries</p>
+            <p class="mt-2 text-[15px] text-ink/85">IT·플랫폼 · 게임 · 콘텐츠 · 제조 · 금융 · 공공·재단</p>
+          </div>
+        </div>
+
+        <p class="mt-8 text-sm text-mute">
+          코칭엔은 대표 코치 외에도 산업·도메인별 시니어 코치 풀과 협업합니다. 매칭은 상담 단계에서 안내드립니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= RESULTS & CLIENTS ========= -->
+<section id="results" class="py-28 lg:py-36">
+  <div class="max-w-content mx-auto px-6 lg:px-8">
+    <div class="reveal max-w-3xl">
+      <p class="eyebrow text-accent-2 mb-4">Results & Clients</p>
+      <h2 class="text-4xl lg:text-5xl tracking-tight3 font-bold text-primary leading-tight">
+        가장 신뢰받는 조직들과<br />함께 일해왔습니다.
+      </h2>
+    </div>
+
+    <!-- big numbers -->
+    <div class="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line rounded-3xl overflow-hidden">
+      <div class="bg-white p-8">
+        <p class="num text-5xl lg:text-6xl font-semibold text-primary" data-count="3200" data-suffix="+">0</p>
+        <p class="mt-3 text-[14px] text-mute">누적 코칭 시수 (hrs)</p>
+      </div>
+      <div class="bg-white p-8">
+        <p class="num text-5xl lg:text-6xl font-semibold text-primary" data-count="100" data-suffix="+">0</p>
+        <p class="mt-3 text-[14px] text-mute">도입 기업·조직 수</p>
+      </div>
+      <div class="bg-white p-8">
+        <p class="num text-5xl lg:text-6xl font-semibold text-primary" data-count="450" data-suffix="+">0</p>
+        <p class="mt-3 text-[14px] text-mute">양성 코치 수</p>
+      </div>
+      <div class="bg-white p-8">
+        <p class="num text-5xl lg:text-6xl font-semibold text-primary" data-count="92" data-suffix="%">0</p>
+        <p class="mt-3 text-[14px] text-mute">재의뢰율</p>
+      </div>
+    </div>
+
+    <!-- case studies -->
+    <div class="mt-16 grid lg:grid-cols-3 gap-5">
+      <article class="reveal bg-primary text-white rounded-3xl p-8 lg:p-10">
+        <span class="eyebrow text-accent">Case · Tech</span>
+        <h3 class="mt-5 text-2xl font-semibold tracking-tight2 leading-snug">대형 IT 플랫폼사<br />신임 임원 코칭</h3>
+        <p class="mt-4 text-white/75 leading-relaxed">6개월 1:1 코칭 운영. 360 평가 평균 <span class="num font-semibold text-accent">+27%</span>, 부서 협업 만족도 <span class="num font-semibold text-accent">+18%</span> 향상.</p>
+      </article>
+      <article class="reveal bg-white border border-line rounded-3xl p-8 lg:p-10">
+        <span class="eyebrow text-accent-2">Case · Mobility</span>
+        <h3 class="mt-5 text-2xl font-semibold tracking-tight2 text-primary leading-snug">모빌리티 기업<br />리더십팀 팀코칭</h3>
+        <p class="mt-4 text-ink/70 leading-relaxed">12주 팀코칭 후 의사결정 사이클 <span class="num font-semibold text-primary">-35%</span>, 임원 1on1 정착률 <span class="num font-semibold text-primary">100%</span>.</p>
+      </article>
+      <article class="reveal bg-white border border-line rounded-3xl p-8 lg:p-10">
+        <span class="eyebrow text-accent-2">Case · Public</span>
+        <h3 class="mt-5 text-2xl font-semibold tracking-tight2 text-primary leading-snug">공공기관<br />사내코치 양성</h3>
+        <p class="mt-4 text-ink/70 leading-relaxed">2년 동안 <span class="num font-semibold text-primary">38명</span>의 사내코치 인증 완료. 외부 코칭 의존도 <span class="num font-semibold text-primary">-60%</span>.</p>
+      </article>
+    </div>
+
+    <!-- testimonials -->
+    <div class="mt-16 grid md:grid-cols-2 gap-5 reveal">
+      <figure class="bg-surface-2/60 border border-line rounded-3xl p-8">
+        <blockquote class="text-lg text-ink/85 leading-relaxed">
+          "코칭이 처음에는 부담스러웠는데, 첫 세션에서 다음 한 주의 한 가지를 정하고 나니
+          그 다음부터는 회의 흐름 자체가 바뀌었습니다."
+        </blockquote>
+        <figcaption class="mt-5 text-sm text-mute">— A사 CFO · 코스닥 상장 IT 기업</figcaption>
+      </figure>
+      <figure class="bg-surface-2/60 border border-line rounded-3xl p-8">
+        <blockquote class="text-lg text-ink/85 leading-relaxed">
+          "팀코칭 6주차에 우리 팀의 의사결정 규칙이 처음으로 글로 쓰여졌습니다.
+          이걸 외부에서 끌어내준 게 가장 큰 자산입니다."
+        </blockquote>
+        <figcaption class="mt-5 text-sm text-mute">— B사 사업본부장 · 글로벌 콘텐츠 기업</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========= PROCESS ========= -->
+<section class="py-28 lg:py-36 bg-surface-2/50 border-y border-line">
+  <div class="max-w-content mx-auto px-6 lg:px-8">
+    <div class="reveal max-w-3xl">
+      <p class="eyebrow text-accent-2 mb-4">Process</p>
+      <h2 class="text-4xl lg:text-5xl tracking-tight3 font-bold text-primary leading-tight">
+        5단계로 진행되는<br />코칭엔의 운영 방식.
+      </h2>
+    </div>
+
+    <ol class="mt-14 grid md:grid-cols-5 gap-4 reveal">
+      <li class="bg-white border border-line rounded-2xl p-6">
+        <p class="num text-accent-2 font-semibold">01</p>
+        <h3 class="mt-3 font-semibold text-primary text-lg">Best Hopes</h3>
+        <p class="mt-2 text-sm text-mute">의뢰 배경과 기대 결과를 정렬합니다.</p>
+        <p class="mt-3 text-xs text-mute">1주</p>
+      </li>
+      <li class="bg-white border border-line rounded-2xl p-6">
+        <p class="num text-accent-2 font-semibold">02</p>
+        <h3 class="mt-3 font-semibold text-primary text-lg">Design</h3>
+        <p class="mt-2 text-sm text-mute">진단·코치 매칭·세션 구조를 설계합니다.</p>
+        <p class="mt-3 text-xs text-mute">1–2주</p>
+      </li>
+      <li class="bg-white border border-line rounded-2xl p-6">
+        <p class="num text-accent-2 font-semibold">03</p>
+        <h3 class="mt-3 font-semibold text-primary text-lg">Coaching</h3>
+        <p class="mt-2 text-sm text-mute">1:1 또는 팀 세션을 정기 운영합니다.</p>
+        <p class="mt-3 text-xs text-mute">3–12개월</p>
+      </li>
+      <li class="bg-white border border-line rounded-2xl p-6">
+        <p class="num text-accent-2 font-semibold">04</p>
+        <h3 class="mt-3 font-semibold text-primary text-lg">Evidence</h3>
+        <p class="mt-2 text-sm text-mute">사전·사후 지표로 변화의 증거를 정리합니다.</p>
+        <p class="mt-3 text-xs text-mute">상시</p>
+      </li>
+      <li class="bg-primary text-white rounded-2xl p-6">
+        <p class="num text-accent font-semibold">05</p>
+        <h3 class="mt-3 font-semibold text-lg">Scale</h3>
+        <p class="mt-2 text-sm text-white/70">사내 코치 양성·문화 컨설팅으로 확장합니다.</p>
+        <p class="mt-3 text-xs text-white/50">선택</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========= PUBLIC & SOCIAL IMPACT ========= -->
+<section class="py-28 lg:py-36">
+  <div class="max-w-content mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-center reveal">
+    <div class="lg:col-span-6">
+      <p class="eyebrow text-accent-2 mb-4">Public & Social Impact</p>
+      <h2 class="text-4xl lg:text-5xl tracking-tight3 font-bold text-primary leading-tight">
+        코칭은 비즈니스만의<br />것이 아닙니다.
+      </h2>
+      <p class="mt-6 text-lg text-ink/70 leading-relaxed">
+        코칭엔은 매년 수익의 일부를 공익 코칭 프로젝트에 투입합니다.
+        청년·여성 리더, 비영리·재단, 스포츠 코치 아카데미와의 협업을 통해
+        코칭이 닿는 범위를 넓혀가고 있습니다.
+      </p>
+    </div>
+    <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+      <div class="bg-surface-2 border border-line rounded-2xl p-6">
+        <p class="num text-3xl font-semibold text-primary">12+</p>
+        <p class="mt-2 text-sm text-mute">공익 프로젝트 운영</p>
+      </div>
+      <div class="bg-surface-2 border border-line rounded-2xl p-6">
+        <p class="num text-3xl font-semibold text-primary">800+ hrs</p>
+        <p class="mt-2 text-sm text-mute">프로보노 코칭 시수</p>
+      </div>
+      <div class="bg-primary text-white rounded-2xl p-6 col-span-2">
+        <p class="eyebrow text-accent">Partners</p>
+        <p class="mt-3 text-white/85 leading-relaxed">아산나눔재단 · KBO 코치아카데미 · 비영리 리더십 파트너십 외 다수.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FAQ ========= -->
+<section class="py-28 lg:py-36 bg-surface-2/50 border-y border-line">
+  <div class="max-w-content mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-10">
+    <div class="lg:col-span-4 reveal">
+      <p class="eyebrow text-accent-2 mb-4">FAQ</p>
+      <h2 class="text-3xl lg:text-4xl tracking-tight3 font-bold text-primary leading-tight">
+        자주 묻는 질문.
+      </h2>
+      <p class="mt-4 text-mute">기업 도입 / 개인 수강 관점에서 자주 듣는 질문들입니다.</p>
+    </div>
+
+    <div class="lg:col-span-8 divide-y divide-line border-y border-line reveal">
+      <details class="py-6 group">
+        <summary class="flex items-center justify-between text-lg font-semibold text-primary">
+          <span>전사 도입과 임원 1:1 코칭 중 어느 쪽이 먼저인가요?</span>
+          <span class="chev w-6 h-6 inline-flex items-center justify-center text-accent-2 transition">+</span>
+        </summary>
+        <p class="mt-4 text-ink/70 leading-relaxed">대개 상위 리더 한 명의 변화가 빠른 효과를 만들기 때문에 임원 1:1 → 리더십팀 코칭 → 전사 문화 순으로 권장합니다. 단, HR 진단 결과에 따라 권장 경로는 달라집니다.</p>
+      </details>
+      <details class="py-6 group">
+        <summary class="flex items-center justify-between text-lg font-semibold text-primary">
+          <span>최소 인원·기간이 정해져 있나요?</span>
+          <span class="chev w-6 h-6 inline-flex items-center justify-center text-accent-2 transition">+</span>
+        </summary>
+        <p class="mt-4 text-ink/70 leading-relaxed">1:1 코칭은 1명·3개월부터, 팀코칭은 5–9명·6주부터 운영합니다. 그 미만의 단발 워크숍도 가능하나 효과 측정이 어려울 수 있습니다.</p>
+      </details>
+      <details class="py-6 group">
+        <summary class="flex items-center justify-between text-lg font-semibold text-primary">
+          <span>코치 매칭은 어떻게 이뤄지나요?</span>
+          <span class="chev w-6 h-6 inline-flex items-center justify-center text-accent-2 transition">+</span>
+        </summary>
+        <p class="mt-4 text-ink/70 leading-relaxed">상담 단계에서 산업·직군·이슈를 파악한 뒤 2–3명의 코치 후보를 제안합니다. 첫 세션은 케미스트리 미팅으로 운영되며, 매칭이 맞지 않으면 코치 교체가 가능합니다.</p>
+      </details>
+      <details class="py-6 group">
+        <summary class="flex items-center justify-between text-lg font-semibold text-primary">
+          <span>비용은 어느 정도인가요?</span>
+          <span class="chev w-6 h-6 inline-flex items-center justify-center text-accent-2 transition">+</span>
+        </summary>
+        <p class="mt-4 text-ink/70 leading-relaxed">대상 직급, 세션 수, 진단 포함 여부에 따라 달라집니다. 표준 제안서를 요청해 주시면 24시간 내 회신드립니다.</p>
+      </details>
+      <details class="py-6 group">
+        <summary class="flex items-center justify-between text-lg font-semibold text-primary">
+          <span>온라인 / 오프라인 중 어떤 형식인가요?</span>
+          <span class="chev w-6 h-6 inline-flex items-center justify-center text-accent-2 transition">+</span>
+        </summary>
+        <p class="mt-4 text-ink/70 leading-relaxed">1:1 코칭은 온라인 비중이 높습니다. 팀코칭은 첫 워크숍·중간 점검은 오프라인을 권장합니다.</p>
+      </details>
+      <details class="py-6 group">
+        <summary class="flex items-center justify-between text-lg font-semibold text-primary">
+          <span>개인이 교육과정만 수강할 수도 있나요?</span>
+          <span class="chev w-6 h-6 inline-flex items-center justify-center text-accent-2 transition">+</span>
+        </summary>
+        <p class="mt-4 text-ink/70 leading-relaxed">네, CPCT / cSFTT / 코칭리더십 베이직 / 비즈니스코칭 40시간 과정 모두 개인 등록이 가능합니다. 기수별 정원이 있으니 일정 확인 후 신청해 주세요.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ========= CTA / CONTACT ========= -->
+<section id="contact" class="bg-primary text-white py-28 lg:py-36 relative overflow-hidden">
+  <div class="absolute inset-0 -z-0 opacity-40">
+    <div class="absolute -top-32 -right-20 w-[520px] h-[520px] rounded-full bg-accent/20 blur-3xl"></div>
+    <div class="absolute bottom-0 -left-20 w-[420px] h-[420px] rounded-full bg-primary-2/60 blur-3xl"></div>
+  </div>
+  <div class="max-w-content mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-12 relative">
+    <div class="lg:col-span-5">
+      <p class="eyebrow text-accent mb-4">Get Started</p>
+      <h2 class="text-4xl lg:text-5xl tracking-tight3 font-bold leading-tight">
+        지금 조직의 리더십을<br />함께 진단해보겠습니다.
+      </h2>
+      <p class="mt-6 text-white/75 leading-relaxed">
+        간단한 정보를 남겨주시면, 영업일 기준 24시간 내 담당자가 회신드립니다.
+        상담은 무료이며, 도입 결정 전까지 자료 공유와 케이스 안내가 모두 무료로 진행됩니다.
+      </p>
+
+      <div class="mt-10 space-y-3 text-sm text-white/75">
+        <p><span class="text-accent">대표 메일</span> &nbsp; contact@coachingn.com</p>
+        <p><span class="text-accent">대표 전화</span> &nbsp; 02-0000-0000</p>
+        <p><span class="text-accent">주소</span> &nbsp; 서울특별시 강남구 ____</p>
+      </div>
+    </div>
+
+    <form id="contact-form" class="lg:col-span-7 grid sm:grid-cols-2 gap-x-6 gap-y-2" novalidate>
+      <div><label class="sr-only" for="company">회사명</label><input id="company" name="company" required class="field" placeholder="회사명 *" /></div>
+      <div><label class="sr-only" for="name">담당자명</label><input id="name" name="name" required class="field" placeholder="담당자명 *" /></div>
+      <div><label class="sr-only" for="role">직함</label><input id="role" name="role" class="field" placeholder="직함" /></div>
+      <div><label class="sr-only" for="email">이메일</label><input id="email" name="email" type="email" required class="field" placeholder="이메일 *" /></div>
+      <div class="sm:col-span-2">
+        <label class="sr-only" for="purpose">코칭 도입 목적</label>
+        <select id="purpose" name="purpose" class="field">
+          <option value="">코칭 도입 목적을 선택하세요</option>
+          <option>경영자·임원 코칭</option>
+          <option>팀 코칭 / 리더십팀 정렬</option>
+          <option>사내 코치 양성 · 코칭 문화</option>
+          <option>교육과정(개인) 수강 문의</option>
+          <option>기타</option>
+        </select>
+      </div>
+      <div class="sm:col-span-2"><label class="sr-only" for="message">문의 내용</label><textarea id="message" name="message" rows="4" class="field resize-none" placeholder="문의 내용을 자유롭게 작성해 주세요"></textarea></div>
+
+      <div class="sm:col-span-2 mt-6 flex flex-wrap items-center gap-4">
+        <button type="submit" class="inline-flex items-center gap-2 bg-accent text-primary px-7 py-4 rounded-full font-semibold hover:bg-accent-2 hover:text-white transition">
+          상담 신청하기 <span aria-hidden="true">→</span>
+        </button>
+        <p id="form-msg" class="text-sm text-white/60"></p>
+      </div>
+      <p class="sm:col-span-2 mt-2 text-xs text-white/45">
+        제출하신 정보는 상담 회신 목적 외 사용되지 않으며, 1년 후 자동 파기됩니다.
+      </p>
+    </form>
+  </div>
+</section>
+
+<!-- ========= FOOTER ========= -->
+<footer class="bg-primary text-white/70 border-t border-white/10">
+  <div class="max-w-content mx-auto px-6 lg:px-8 py-14 grid md:grid-cols-12 gap-10 text-sm">
+    <div class="md:col-span-5">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-7 h-7 rounded-full bg-white relative">
+          <span class="absolute inset-1.5 rounded-full border border-accent"></span>
+        </span>
+        <span class="text-white font-semibold tracking-tight2">코칭엔 · CoachingN</span>
+      </div>
+      <p class="mt-5 text-white/55 leading-relaxed">
+        해결중심 비즈니스 코칭 컴퍼니. 리더와 팀이 가장 짧은 시간 안에<br />
+        실행 가능한 해법을 찾고, 실제 성과로 옮기도록 돕습니다.
+      </p>
+      <p class="mt-6 text-xs text-white/40">
+        상호 코칭엔 · 대표 남기웅 · 사업자등록번호 000-00-00000<br />
+        서울특별시 강남구 ____ · contact@coachingn.com
+      </p>
+    </div>
+    <div class="md:col-span-3">
+      <p class="eyebrow text-white/40 mb-4">Sitemap</p>
+      <ul class="space-y-2.5">
+        <li><a href="#why" class="hover:text-white">Why Coachingn</a></li>
+        <li><a href="#solutions" class="hover:text-white">비즈니스 코칭</a></li>
+        <li><a href="#tracks" class="hover:text-white">교육과정</a></li>
+        <li><a href="#sfbc" class="hover:text-white">SFBC</a></li>
+        <li><a href="#coaches" class="hover:text-white">코치진</a></li>
+        <li><a href="#results" class="hover:text-white">실적·고객사</a></li>
+        <li><a href="#contact" class="hover:text-white">상담 문의</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-4">
+      <p class="eyebrow text-white/40 mb-4">Newsletter</p>
+      <p class="text-white/55">월 1회, 리더십·팀코칭 인사이트를 보내드립니다.</p>
+      <form class="mt-4 flex items-center gap-2" onsubmit="event.preventDefault();this.querySelector('input').value='';this.nextElementSibling.textContent='구독 신청이 접수되었습니다.';">
+        <input type="email" required placeholder="email@company.com" class="flex-1 bg-transparent border-b border-white/25 py-3 text-white placeholder:text-white/40 focus:border-accent outline-none" />
+        <button class="text-accent hover:text-white text-sm font-medium">구독 →</button>
+      </form>
+      <p class="mt-2 text-xs text-white/45"></p>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-content mx-auto px-6 lg:px-8 py-6 flex flex-wrap items-center justify-between text-xs text-white/40">
+      <p>© 2026 CoachingN. All rights reserved.</p>
+      <p>Privacy · Terms</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // count-up
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const end = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const isFloat = !Number.isInteger(end);
+      const dur = 1200;
+      const start = performance.now();
+      function tick(now) {
+        const p = Math.min(1, (now - start) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const val = end * eased;
+        el.textContent = (isFloat ? val.toFixed(1) : Math.floor(val).toLocaleString()) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = (isFloat ? end.toFixed(1) : end.toLocaleString()) + suffix;
+      }
+      requestAnimationFrame(tick);
+      countObserver.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('[data-count]').forEach((el) => countObserver.observe(el));
+
+  // contact form (no backend — friendly placeholder)
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const msg = document.getElementById('form-msg');
+    if (!form.checkValidity()) {
+      msg.textContent = '필수 항목을 확인해 주세요.';
+      msg.className = 'text-sm text-accent';
+      return;
+    }
+    msg.textContent = '문의가 접수되었습니다. 24시간 내 회신드리겠습니다.';
+    msg.className = 'text-sm text-accent';
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
